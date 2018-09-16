@@ -1,0 +1,68 @@
+<!DOCTYPE >
+<style>
+	.left{width: 180px;height: 35px;background-color: blue;color: white;float: left;text-align: center;line-height: 35px;}
+	.right{width: 180px;height: 35px;background-color: black;color: white;float: left;text-align: center;line-height: 35px;}
+	#audio{clear: left;}
+	#song{width: 360px;height: 70px;background-color: lightyellow;}
+	#button{padding-right: 2px;float: right;}
+	#song div{width: 350px;}
+	#btn {float: left;}
+	#song1{width: 360px;height: 170px;background-color: lightyellow;}
+</style>
+<script>
+	 var music = new Array();
+	 music=[0,1];
+	function play(){
+		var audio = document.getElementById('audios');
+		audio.play();
+	}
+	function play1(){
+		var audio = document.getElementById('audios');
+		audio.src="music1.mp3";
+		audio.play();
+	}
+	var shang=document.getElementById('shang');
+	var num=0;
+	function pre (){
+		num=(num+1)%2;
+		var audio = document.getElementById('audios');
+		audio.src="music"+music[num]+".mp3";
+		audio.play();
+	}
+	function next (){
+		num=(num+1)%2;
+		var audio = document.getElementById('audios');
+		audio.src="music"+music[num]+".mp3";
+		audio.play();
+	}
+	function start(){
+		var audio = document.getElementById('audios');
+		if(audio.played)
+			audio.pause();
+		if(audio.paused)
+			audio.play();
+	}
+</script>
+<div>
+	<div class="left">在线音乐</div>
+	<div class="right">本地音乐</div>
+</div>
+<div >
+	<div id="song">
+		违背的青春 <input type="button" onclick="play()" value="播放" id="button" />
+	</div>
+	
+	<div id="song">
+		喜欢你 <input type="button" onclick="play1()" value="播放" id="button"/>
+	</div>
+	<div id="song1">
+		
+	</div>
+</div>
+<div>
+	<div id="btn"><input type="button" value="上一首" onclick="pre()"/><br />
+	<input type="button" value="下一首" onclick="next()" /></div>
+	<div id="bofangqi"><audio src="music0.mp3" id="audios"controls="controls" >违背的青春 </audio></div>
+</div>
+</div>
+
