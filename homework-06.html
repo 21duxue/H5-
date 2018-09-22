@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<style>
+	#color{ border: solid darkgray 1px; height: 45px;}
+	input{width: 25px;height: 25px;margin-right: 5px;}
+	.color1{margin: 8px;border: solid darkgray 1px;;}
+	#txt{ border: solid darkgray 1px; height: 75px; margin-top: 30px; width: 600px; margin-left: 50px;background-color: greenyellow;}
+</style>
+<fieldset style="width: 700px; height: 250px; " >
+	<legend style="color: red;"><h1>页面换肤</h1></legend>
+	<div id="color">
+		<div class="color1">
+			<input type="button" />
+			<input type="button" />
+			<input type="button" />
+			<input type="button"  />
+			<input type="button"  />
+			<input type="button"/>
+		</div>
+	</div>
+	<div id="txt">
+		LocalStorage讲数据保存在客户端本地的硬件设备中，即使浏览器被关闭了，改数据任然存在，下次打开浏览器访问网站时仍然可以继续使用。
+	</div>
+</fieldset>
+<script>
+	var colors=['red','green','orange','lightblue','blue',"greenyellow"];
+	var inputs=document.getElementsByTagName('input');
+	var txt=document.getElementById('txt');
+	for(var i=0;i<inputs.length;i++){
+ 	 inputs[i].style.background=colors[i];
+ 	 inputs[i].index=i;
+ 	 inputs[i].onclick=function(){
+  	  txt.style.background=colors[this.index];
+  	  localStorage.setItem('bgc',colors[this.index]);
+ 	 }
+ 	 window.onload=function(){
+  	  txt.style.background=localStorage.getItem('bgc');
+ 	 }
+	}
+</script>
