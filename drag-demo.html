@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<div style="border: solid; width: 400px;height: 400px;" id="drag" >	
+		</div>
+	</body>
+	<script>
+		document.ondragover = function(e){
+    		e.preventDefault();
+  		}
+  		document.ondrop = function(e){
+  		  e.preventDefault();
+ 		 }
+ 		var drag=document.getElementById('drag');
+ 		
+ 		 drag.ondragover = function(e){
+   		 	e.preventDefault();
+  		}
+		drag.ondrop =function(e){
+			var file=e.dataTransfer.files[0];
+			var reader= new FileReader();
+    		reader.readAsDataURL(file);
+    		reader.onload=function(){
+      		drag.innerHTML='<img style="width:400px; height:400px;"src='+'"'+reader.result+'"'+'>';
+    		}
+		}
+	</script>
+	
+</html>
